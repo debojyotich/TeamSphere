@@ -2,7 +2,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const connectDB = require("./config/db");
+const connectDB = require("./src/config/db");
 
 dotenv.config();
 connectDB();
@@ -14,10 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/api/tasks", require("./routes/taskRoutes"));
-app.use("/api/projects", require("./routes/projectRoutes"));
-app.use("/api/members", require("./routes/memberRoutes"));
-app.use("/api/auth", require("./routes/authRoutes"));
+app.use("/api/tasks", require("./src/routes/taskRoutes"));
+app.use("/api/projects", require("./src/routes/projectRoutes"));
+app.use("/api/members", require("./src/routes/memberRoutes"));
+app.use("/api/auth", require("./src/routes/authRoutes"));
 
 
 const PORT = process.env.PORT || 5000;

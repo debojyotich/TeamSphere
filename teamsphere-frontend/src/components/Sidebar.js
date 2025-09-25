@@ -60,6 +60,7 @@ const Sidebar = ({ theme, onProjectCreated }) => {
       <CreateProjectModal show={showModal} onClose={() => setShowModal(false)} onProjectCreated={onProjectCreated} />
       <CreateTaskModal show={showTaskModal} onClose={() => setShowTaskModal(false)} onProjectCreated={onProjectCreated} />
       <CreateMemberModal show={showMemberModal} onClose={() => setShowMemberModal(false)} onProjectCreated={onProjectCreated} />
+         <MoveTask show={showMoveTaskModal} onClose={() => setShowMoveTaskModal(false)} onProjectCreated={onProjectCreated} />
 
 
     </div>

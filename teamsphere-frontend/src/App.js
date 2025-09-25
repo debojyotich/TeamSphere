@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import Sidebar from './components/Sidebar';
 import ProjectBoard from './components/ProjectBoard';
 import MoveTaskModal from './components/MoveTask';
+import MoveTask from './components/MoveTask';
 
 
 const App = () => {

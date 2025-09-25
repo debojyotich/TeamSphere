@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import InviteMember from './InviteMember';
 import './moveTask.css';
 
-const MoveTask  = () => {
+const MoveTask  = ({ show, onClose, onProjectCreated }) => {
   
   const url1 = "http://localhost:5000/api/projects/getProjectsWithTask/All" ;
   const url2 = "http://localhost:5000/api/tasks/" ;
@@ -11,6 +11,7 @@ const MoveTask  = () => {
 
   const [projects, setProjects] = useState([]);
   const [draggedTask, setDraggedTask] = useState(null);
+  const [message, setMessage] = useState('');
 
 
   const reloadProjects = () => {
@@ -27,16 +28,16 @@ const MoveTask  = () => {
     reloadProjects();
   }, []);
 
+   if (!show) return null;
+
    const handleDragStart = (task, fromProjectId) => {
     setDraggedTask({ ...task, fromProjectId });
   };
 
    const handleDrop = async (toProjectId) => {
-    console.log("value:"+toProjectId+":"+draggedTask.fromProjectId+":"+draggedTask._id);
     if (!draggedTask || draggedTask.fromProjectId === toProjectId) return;
     // Move task in backend
     const url3=url2+draggedTask._id;
-    console.log("url3:"+url3);
     await fetch(url3, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -49,6 +50,8 @@ const MoveTask  = () => {
   
 
   return (
+    <div  className='modal-new' onClick={() => { onClose(); setMessage(''); }}>
+      
     <div className="project-tasks-board-container">
       <h2 className="project-tasks-board-title">Project Tasks Overview</h2>
       <div className="project-tasks-board-list">
@@ -80,12 +83,18 @@ const MoveTask  = () => {
                 ) : (
                   <span className="project-tasks-board-none">No tasks</span>
                 )}
+                
               </div>
+              
             </div>
           ))
         )}
       </div>
+      
     </div>
+     <button type="button" className="modal-btn-new" onClick={() => { onClose(); setMessage(''); }}>Cancel</button>
+    </div>
+    
   );
 };
 

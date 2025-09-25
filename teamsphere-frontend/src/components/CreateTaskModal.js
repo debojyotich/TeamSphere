@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './modal.css';
 
+
 const modalStyle = {
   position: 'fixed',
   top: 0,

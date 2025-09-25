@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import InviteMember from './InviteMember';
  import MyPopup from './MyPopup'; // Your popup component
+ import './projecttable.css';
  import './modal.css';
+ 
 
  
 
@@ -57,7 +59,8 @@ const ProjectBoard = ({ theme }) => {
         {projects.length === 0 ? (
           <p>No projects found.</p>
         ) : (
-          <table border={1}>
+          <table className='project-table'>
+            <thead>
             <tr >
               <th>Name</th>
               <th>Description</th>
@@ -65,6 +68,8 @@ const ProjectBoard = ({ theme }) => {
               <th>Detail</th>
                 
             </tr>
+            </thead>
+            <tbody>
             {projects.map(project => (
               <tr key={project._id} >               
                 <td>
@@ -75,14 +80,15 @@ const ProjectBoard = ({ theme }) => {
                   </td>                
                 <td>{project.description}</td>
                 <td>{project.status}</td>
-                <td>
-                    <button onClick={() => handleRowClick(project)}>View Details</button>
+                <td style={{ alignItems: 'center' }}>
+                    <button  className="viewdetail-btn" onClick={() => handleRowClick(project)}>View Details</button>
 
                      
                   </td>
                  
               </tr>
             ))}
+            </tbody>
              </table>
            
           )}

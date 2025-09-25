@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import './projecttable.css';
 
 const modalStyle = {
     position: 'fixed',
@@ -82,21 +83,25 @@ function MyPopup({ data, show, onClose, children }) {
                         {tasks.length === 0 ? (
                             <p>No Tasks found.</p>
                         ) : (
-                            <table border={1}>
-                                <tr>
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th>Status</th>
-                                </tr>
-                                {tasks.map(task => (
-                                    <tr key={task._id} >
-                                        <td>
-                                            {task.title}
-                                        </td>
-                                        <td>{task.description}</td>
-                                        <td>{task.status}</td>
+                            <table className='project-table'>
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
                                     </tr>
-                                ))}
+                                </thead>
+                                <tbody>
+                                    {tasks.map(task => (
+                                        <tr key={task._id} >
+                                            <td>
+                                                {task.title}
+                                            </td>
+                                            <td>{task.description}</td>
+                                            <td>{task.status}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
                             </table>
                         )}
                     </div>
@@ -107,21 +112,25 @@ function MyPopup({ data, show, onClose, children }) {
                         {members.length === 0 ? (
                             <p>No Member found.</p>
                         ) : (
-                            <table border={1}>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Gender</th>
-                                </tr>
-                                {members.map(member => (
-                                    <tr key={member._id} >
-                                        <td>
-                                            {member.name}
-                                        </td>
-                                        <td>{member.email}</td>
-                                        <td>{member.gender}</td>
+                            <table className='project-table'>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Gender</th>
                                     </tr>
-                                ))}
+                                </thead>
+                                <tbody>
+                                    {members.map(member => (
+                                        <tr key={member._id} >
+                                            <td>
+                                                {member.name}
+                                            </td>
+                                            <td>{member.email}</td>
+                                            <td>{member.gender}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
                             </table>
                         )}
                     </div>

@@ -1,0 +1,57 @@
+.project-table
+{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0);
+    width: 800px;
+}
+
+.project-table thead tr
+{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid black; 
+}
+
+.project-table th,
+.project-table td
+{
+    padding: 12 px 15px;
+    border: 1px solid black; 
+    text-align: center;
+
+}
+
+
+.project-table tbody tr 
+{
+    border-bottom: 1px solid #dddddd;
+
+}
+
+ 
+
+.project-table tbody tr:last-of-type{
+    border-bottom: 2 px solid #009879;
+}
+
+.viewdetail-btn {
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+  margin-top: 8px;
+  margin-right: 8px;
+  transition: background 0.2s, transform 0.2s;
+}
